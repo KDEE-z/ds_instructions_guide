@@ -3,7 +3,8 @@ import pandas as pd
 from pydantic import BaseModel, Field, field_validator, computed_field
 import chardet
 
-SEED = 55
+class CFG:
+    SEED = 55
 
 class Config(BaseModel):
     """
@@ -21,7 +22,7 @@ class Config(BaseModel):
 
     train_file: str = Field("taxi_dataset.csv", description="学習データのファイル名")
     test_file: str = Field("taxi_dataset_for_upload.csv", description="テストデータのファイル名")
-    random_seed: int = Field(SEED, description="乱数シード値")
+    random_seed: int = Field(CFG.SEED, description="乱数シード値")
 
     @computed_field
     @property
