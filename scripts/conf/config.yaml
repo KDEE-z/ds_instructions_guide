@@ -12,3 +12,6 @@ model:
 train:
   num_boost_round: 1000
   early_stopping_rounds: 10
+hydra:
+  sweep:
+    subdir: ${hydra.job.override_dirname}
